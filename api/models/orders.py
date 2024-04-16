@@ -1,15 +1,23 @@
-from sqlalchemy import Column, ForeignKey, Integer, String, DECIMAL, DATETIME
+from sqlalchemy import Column, ForeignKey, Integer, String, Float, Date
 from sqlalchemy.orm import relationship
 from datetime import datetime
 from ..dependencies.database import Base
+from .models.customer import Customer
+from .models.restaurant import Restaurant
 
 
 class Order(Base):
     __tablename__ = "orders"
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
-    customer_name = Column(String(100))
-    order_date = Column(DATETIME, nullable=False, server_default=str(datetime.now()))
-    description = Column(String(300))
-
-    order_details = relationship("OrderDetail", back_populates="order")
+    order_date = Column(Date, nullable=False, server_default=str(datetime.now()))
+    tracking_number = Column(String(100))
+    order_status = Column(String(100))
+    total_price = Column(Float)
+    customer_email = Column(String(100), ForeignKey("Customer.email"))
+    customer = relationship("Customer", back_populates="orders")
+    payment_id = Column(Integer, ForeignKey("payments.id"))
+    payment = relationship("Payment", back_populates="order")
+    order_details = Column(String(300))
+    restaurant_id = Column(Integer, ForeignKey("restaurants.id"))
+    restaurant = relationship("Restaurant", back_populates="orders")

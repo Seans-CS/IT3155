@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import Optional
 from pydantic import BaseModel
-from .order_details import OrderDetail
+from .orders import Order
 
 
 class CustomerBase(BaseModel):
@@ -18,12 +18,12 @@ class CustomerUpdate(BaseModel):
     name: Optional[str] = None
     phone_number: Optional[str] = None
     address: Optional[str] = None
-    order_details: Optional[OrderDetail] = None
+    order_details: Optional[Order] = None
 
 
 class Customer(CustomerBase):
     email: str
-    order_details: OrderDetail = None
+    order: Order = None
 
     class ConfigDict:
         from_attributes = True

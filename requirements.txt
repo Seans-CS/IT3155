@@ -1,8 +1,11 @@
-fastapi
-uvicorn
-sqlalchemy
+fastapi~=0.110.1
+uvicorn~=0.29.0
+sqlalchemy~=2.0.29
 pymysql
-pytest
+pytest~=8.1.1
 pytest-mock
 httpx
 cryptography
+DateTime~=5.5
+typing~=3.7.4.3
+pydantic~=2.7.0
