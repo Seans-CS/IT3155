@@ -1,13 +1,20 @@
 from datetime import datetime
-from typing import Optional
+from typing import Optional, List
 from pydantic import BaseModel
-from .order_details import OrderDetail
-
+from .customer import Customer
+from .payment import Payment
+from .restaurant import Restaurant
 
 
 class OrderBase(BaseModel):
-    customer_name: str
-    description: Optional[str] = None
+    order_date: Optional[datetime]
+    tracking_number: Optional[str]
+    order_status: Optional[str]
+    total_price: Optional[float]
+    customer_email: Optional[str]
+    payment_id: Optional[int]
+    order_details: Optional[str]
+    restaurant_id: Optional[int]
 
 
 class OrderCreate(OrderBase):
@@ -15,14 +22,21 @@ class OrderCreate(OrderBase):
 
 
 class OrderUpdate(BaseModel):
-    customer_name: Optional[str] = None
-    description: Optional[str] = None
+    order_date: Optional[datetime] = None
+    tracking_number: Optional[str] = None
+    order_status: Optional[str] = None
+    total_price: Optional[float] = None
+    customer_email: Optional[str] = None
+    payment_id: Optional[int] = None
+    order_details: Optional[str] = None
+    restaurant_id: Optional[int] = None
 
 
 class Order(OrderBase):
     id: int
-    order_date: Optional[datetime] = None
-    order_details: list[OrderDetail] = None
+    customer: Optional[Customer]
+    payment: Optional[Payment]
+    restaurant: Optional[Restaurant]
 
-    class ConfigDict:
-        from_attributes = True
+    class Config:
+        orm_mode = True
