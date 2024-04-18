@@ -2,8 +2,8 @@ from sqlalchemy import Column, ForeignKey, Integer, String, Float, Date
 from sqlalchemy.orm import relationship
 from datetime import datetime
 from ..dependencies.database import Base
-from .models.customer import Customer
-from .models.restaurant import Restaurant
+# from .models.customer import Customer
+# from .models.restaurant import Restaurant
 
 
 class Order(Base):
