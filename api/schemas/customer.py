@@ -8,6 +8,7 @@ class CustomerBase(BaseModel):
     name: str
     address: str
     phone_number: str
+    email: str
 
 
 class CustomerCreate(CustomerBase):
@@ -22,7 +23,7 @@ class CustomerUpdate(BaseModel):
 
 
 class Customer(CustomerBase):
-    email: str
+
     # order: Order = None
 
     class ConfigDict:
