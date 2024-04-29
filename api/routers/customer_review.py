@@ -4,9 +4,10 @@ from ..controllers import customer as controller
 from ..schemas import customer_review as schema
 from ..dependencies.database import engine, get_db
 
+
 router = APIRouter(
-    tags=['Customer'],
-    prefix="/customer"
+    tags=['Customer_review'],
+    prefix="/customer_review"
 )
 
 
