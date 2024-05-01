@@ -1,6 +1,7 @@
 from typing import Optional
 from pydantic import BaseModel
-from .order_schemas import OrderBase
+
+from api.schemas.orders import OrderBase
 
 
 class PaymentBase(BaseModel):
