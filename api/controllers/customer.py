@@ -10,7 +10,9 @@ def create(db: Session, request):
         name=request.name,
         phonenumber=request.phonenumber,
         address=request.address,
-        order_details_id=request.order_details_id
+        order_id=request.order_id,
+        order=request.order
+
     )
 
     try:

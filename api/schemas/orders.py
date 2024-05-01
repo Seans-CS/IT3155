@@ -3,7 +3,7 @@ from typing import Optional, List
 from pydantic import BaseModel
 from .customer import Customer
 from .payment import Payment
-from .restaurant import Restaurant
+from .main import Restaurant
 
 
 class OrderBase(BaseModel):

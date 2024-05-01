@@ -1,7 +1,11 @@
 from typing import Optional
 from pydantic import BaseModel
+<<<<<<< HEAD
 
 from api.schemas.orders import OrderBase
+=======
+# from .orders import Order
+>>>>>>> a69558f6a1bd7ee26a0a50ea821eefcf87acb14f
 
 
 class PaymentBase(BaseModel):
@@ -24,7 +28,7 @@ class PaymentUpdate(BaseModel):
 
 class Payment(PaymentBase):
     id: int
-    order: Optional[OrderBase]
+    # order: Optional[Order]
 
     class Config:
         orm_mode = True

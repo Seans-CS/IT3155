@@ -2,7 +2,12 @@ from sqlalchemy import Column, ForeignKey, Integer, String, Float, Date
 from sqlalchemy.orm import relationship
 from datetime import datetime
 from ..dependencies.database import Base
+<<<<<<< HEAD
 
+=======
+# from .models.customer import Customer
+# from .models.restaurant import Restaurant
+>>>>>>> a69558f6a1bd7ee26a0a50ea821eefcf87acb14f
 
 
 class Order(Base):
