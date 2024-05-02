@@ -6,7 +6,7 @@ from ..dependencies.database import Base
 class MenuItems(Base):
     __tablename__ = 'menu_items'
 
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     dish_name = Column(String(100), nullable=False, index=True)
     price = Column(DECIMAL(10, 2), nullable=False)
     calories = Column(Integer, nullable=False)
