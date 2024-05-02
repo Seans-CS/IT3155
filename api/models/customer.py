@@ -11,5 +11,5 @@ class Customer(Base):
     email = Column(String(100), primary_key=True, index=True)
     phoneNumber = Column(String(100), nullable=False, index=True)
     address = Column(String(100), nullable=False, index=True)
-    orders_id = Column(Integer, ForeignKey("Orders.id"))
-    order = relationship("Orders", back_populates="customer")
+    order_id = Column(Integer, ForeignKey("orders.id"))
+    order = relationship("Order", back_populates="customer")

@@ -63,4 +63,9 @@ def delete_payment(db: Session, payment_id: int):
         if not db_payment:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Payment with id {payment_id} not found")
         db.delete(db_payment)
+        db.commit()  # Commit changes to the database after deletion
+        return {"message": f"Payment with id {payment_id} deleted successfully"}
+    except Exception as e:
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))
+
 

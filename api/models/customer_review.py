@@ -10,7 +10,7 @@ class CustomerReview(Base):
     __tablename__ = 'CustomerReview'
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
-    review = Column(String(1000), nullable=False, index=True)
+    review = Column(String(500), nullable=False, index=True)
     score = Column(Integer, nullable=False, index=True)
     # customer = Column(customer.Customer, nullable=False, index=True)
     customer = relationship("Customer", back_populates="customer_review")
